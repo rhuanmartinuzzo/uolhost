@@ -1,46 +1,36 @@
-package br.com.uolhost.model;
+package br.com.uolhost.data.vo.v1;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.github.dozermapper.core.Mapping;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-@Table(name = "players")
-public class Player implements Serializable {
+public class PlayerVO implements Serializable {
 
-    private static final long serialVersionUID = 7316762802971383667L;
+    private static final long serialVersionUID = 1L;
 
-    @Id
-    private Long id;
+    @Mapping("id")
+    private Long key;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
     private String email;
 
-    @Column(name = "telefone")
     private Long telefone;
 
-    @Column(name = "codinome")
     private String codinome;
 
-    @Column(name = "grupo")
     private String grupo;
 
-    public Player(){}
+    public PlayerVO(){}
 
-    public Long getId() {
-        return id;
+    public Long getKey() {
+        return key;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setKey(Long key) {
+        this.key = key;
     }
 
     public String getName() {
@@ -86,19 +76,19 @@ public class Player implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Player player)) return false;
+        if (!(o instanceof PlayerVO playerVO)) return false;
 
-        if (!Objects.equals(id, player.id)) return false;
-        if (!Objects.equals(name, player.name)) return false;
-        if (!Objects.equals(email, player.email)) return false;
-        if (!Objects.equals(telefone, player.telefone)) return false;
-        if (!Objects.equals(codinome, player.codinome)) return false;
-        return Objects.equals(grupo, player.grupo);
+        if (!Objects.equals(key, playerVO.key)) return false;
+        if (!Objects.equals(name, playerVO.name)) return false;
+        if (!Objects.equals(email, playerVO.email)) return false;
+        if (!Objects.equals(telefone, playerVO.telefone)) return false;
+        if (!Objects.equals(codinome, playerVO.codinome)) return false;
+        return Objects.equals(grupo, playerVO.grupo);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = key != null ? key.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (telefone != null ? telefone.hashCode() : 0);
